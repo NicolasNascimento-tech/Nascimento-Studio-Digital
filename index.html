@@ -216,17 +216,30 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
         }
 
         .portfolio-thumb {
-            height: 200px;
+            height: 220px;
+            overflow: hidden;
             background: #1a1a24;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-sub);
-            font-size: 0.9rem;
             border-bottom: 1px solid var(--border);
+        }
+
+        /* Faz a imagem preencher o espaço perfeitamente */
+        .portfolio-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-thumb img {
+            transform: scale(1.05); /* Efeito de zoom suave ao passar o mouse */
         }
 
         .portfolio-info {
@@ -357,18 +370,22 @@
         <div class="grid-portfolio">
             
             <div class="portfolio-item">
-                <div class="portfolio-thumb">[ Prévia Layout Corporate ]</div>
+                <div class="portfolio-thumb">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Modelo Corporate Premium">
+                </div>
                 <div class="portfolio-info">
                     <h4>Modelo Premium Corporate</h4>
-                    <p>Ideal para clínicas, consultórios e prestadores de serviços de alto padrão.</p>
+                    <p>Ideal para clínicas, consultórios e prestadores de serviços de alto padrão que buscam um design limpo e corporativo.</p>
                 </div>
             </div>
 
             <div class="portfolio-item">
-                <div class="portfolio-thumb">[ Prévia Layout One-Page ]</div>
+                <div class="portfolio-thumb">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Modelo Black Minimalist">
+                </div>
                 <div class="portfolio-info">
                     <h4>Modelo Black Minimalist</h4>
-                    <p>Focado em infoprodutos, lançamentos e campanhas de tráfego pago.</p>
+                    <p>Focado em infoprodutos, startups, portfólios de desenvolvedores e campanhas arrojadas de tráfego pago.</p>
                 </div>
             </div>
 
@@ -380,8 +397,7 @@
             <h3>Vamos tirar o seu projeto do papel?</h3>
             <p>Fale diretamente comigo para fazermos um orçamento rápido, sem compromisso e entender qual a melhor estrutura para o seu modelo de negócio.</p>
             
-            <!-- AJUSTE SEU NÚMERO NA LINHA ABAIXO (Mantenha o 5521 do Rio) -->
-            <a href="https://wa.me/5521980476367" target="_blank" class="btn-whatsapp">
+            <a href="https://wa.me/55219XXXXXXXX" target="_blank" class="btn-whatsapp">
                 💬 Iniciar Atendimento via WhatsApp
             </a>
         </div>
