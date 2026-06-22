@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nascimento Digital Studio | Sites e Portfólios Profissionais</title>
+    <style>
+        /* Design System - Premium Dark Studio */
+        :root {
+            --bg-main: #050507;
+            --bg-surface: #0c0c0e;
+            --bg-card: #131316;
+            --accent: #00f0ff; 
+            --accent-gradient: linear-gradient(135deg, #00f0ff, #7000ff);
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --border: #1e1e24;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            background: rgba(5, 5, 7, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 100px 0 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -10%; left: 50%; transform: translateX(-50%);
+            width: 300px; height: 300px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .badge-promo {
+            display: inline-block;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        header h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-main);
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 8px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .grid-portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .portfolio-thumb {
+            height: 200px;
+            background: #1a1a24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-info p {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        .cta-block {
+            background: linear-gradient(135deg, #0c0c0e 0%, #161622 100%);
+            border: 1px solid var(--border);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-block h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta-block p {
+            color: var(--text-sub);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background: #00ff66;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 102, 0.2);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+            .nav-links { display: none; } 
+            .cta-block { padding: 40px 20px; }
+            .cta-block h3 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-wrapper">
+            <div class="logo">NASCIMENTO STUDIO</div>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Modelos</a></li>
+                <li><a href="#contato">Orçamento</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container">
+        <div class="badge-promo">Disponibilidade para novos projetos nesta semana</div>
+        <h1>Posicione seu negócio na internet com um site <span>de alto impacto</span></h1>
+        <p>Desenvolvemos landing pages de alta conversão, portfólios profissionais e sites institucionais sob medida para transformar visitantes em clientes fiéis.</p>
+        <a href="#contato" class="btn-primary">Quero um Site Profissional</a>
+    </header>
+
+    <section id="servicos" class="container">
+        <div class="section-title">
+            <h2>Nossas Soluções Digitais</h2>
+            <p>O que podemos construir para alavancar a sua marca ou empresa</p>
+        </div>
+        <div class="grid-services">
+            
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Landing Pages</h3>
+                <p>Páginas de vendas de alta conversão focadas em um único objetivo: transformar seus cliques e anúncios em leads e vendas diretas.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>Portfólios Digitais</h3>
+                <p>Perfeito para profissionais autônomos, médicos, advogados e arquitetos que precisam expor seus trabalhos com elegância e autoridade.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Sites Institucionais</h3>
+                <p>Sua empresa aberta 24h por dia. Estrutura completa apresentando seus serviços, história e integrando canais automáticos de atendimento.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <div class="section-title">
+            <h2>Estruturas Modernas</h2>
+            <p>Conheça alguns dos padrões de layouts limpos e responsivos que aplicamos</p>
+        </div>
+        <div class="grid-portfolio">
+            
+            <div class="portfolio-item">
+                <div class="portfolio-thumb">[ Prévia Layout Corporate ]</div>
+                <div class="portfolio-info">
+                    <h4>Modelo Premium Corporate</h4>
+                    <p>Ideal para clínicas, consultórios e prestadores de serviços de alto padrão.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-thumb">[ Prévia Layout One-Page ]</div>
+                <div class="portfolio-info">
+                    <h4>Modelo Black Minimalist</h4>
+                    <p>Focado em infoprodutos, lançamentos e campanhas de tráfego pago.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" class="container">
+        <div class="cta-block">
+            <h3>Vamos tirar o seu projeto do papel?</h3>
+            <p>Fale diretamente comigo para fazermos um orçamento rápido, sem compromisso e entender qual a melhor estrutura para o seu modelo de negócio.</p>
+            
+            <!-- AJUSTE SEU NÚMERO NA LINHA ABAIXO (Mantenha o 5521 do Rio) -->
+            <a href="https://wa.me/5521980476367" target="_blank" class="btn-whatsapp">
+                💬 Iniciar Atendimento via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nascimento Digital Studio. Todos os direitos reservados.</p>
+            <p style="font-size: 0.75rem; margin-top: 5px; color: #555566;">Desenvolvido com foco em performance e carregamento instantâneo.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
