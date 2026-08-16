@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>FITLIFE | Sistema de Gestão</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --accent: #38bdf8; --danger: #ef4444; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 20px; }
+        .app { width: 100%; max-width: 500px; background: var(--card); padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border-top: 5px solid var(--accent); }
+        h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+        input, select { width: 100%; padding: 10px; margin: 6px 0; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: white; }
+        button { width: 100%; padding: 10px; margin-top: 8px; border: none; border-radius: 6px; background: var(--accent); color: var(--bg); font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { opacity: 0.8; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+        th, td { border: 1px solid #334155; padding: 10px; text-align: left; }
+        th { background: #334155; }
+        .hidden { display: none; }
+        .grid-btn { display: flex; gap: 5px; }
+        .grid-btn button { margin: 0; font-size: 11px; padding: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="app">
+    <!-- TELA 1: LOGIN -->
+    <div id="tela1">
+        <h2>FITLIFE - Login</h2>
+        <input placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <button onclick="show('tela5')">Entrar</button>
+        <button style="background:transparent; color:var(--accent); border: 1px solid var(--accent);">Criar Conta</button>
+        <button style="background:transparent; color: #94a3b8; font-size: 12px;">Esqueci Minha Senha</button>
+    </div>
+
+    <!-- TELA 2: MEU CADASTRO -->
+    <div id="tela2" class="hidden">
+        <h2>Meu Cadastro</h2>
+        <input placeholder="Nome Completo">
+        <input placeholder="CPF">
+        <input type="date" placeholder="Data de Nascimento">
+        <input placeholder="Telefone">
+        <input placeholder="E-mail">
+        <input placeholder="Endereço">
+        <input placeholder="Cidade">
+        <input placeholder="Estado (UF)">
+        <input type="password" placeholder="Senha">
+        <button>Salvar</button>
+        <button onclick="show('tela5')" style="background:#475569;">Cancelar</button>
+        <button onclick="show('tela3')" style="background:#10b981; color:white;">Meus Treinos</button>
+    </div>
+
+    <!-- TELA 3: MEUS TREINOS -->
+    <div id="tela3" class="hidden">
+        <h2>Meus Treinos</h2>
+        <input placeholder="Nome do Treino">
+        <input placeholder="Objetivo">
+        <input placeholder="Instrutor Responsável">
+        <input type="date">
+        <div style="display:flex; gap:5px;">
+            <button>Adicionar</button>
+            <button style="background:#f59e0b;">Editar</button>
+        </div>
+        <table>
+            <tr><th>Treino</th><th>Objetivo</th><th>Data</th></tr>
+            <tr><td>Hipertrofia</td><td>Força</td><td>10/08/2026</td></tr>
+        </table>
+        <button onclick="show('tela5')" style="background:#475569;">Voltar</button>
+    </div>
+
+    <!-- TELA 4: AGENDAR AVALIAÇÃO -->
+    <div id="tela4" class="hidden">
+        <h2>Agendar Avaliação</h2>
+        <input placeholder="Nome do Aluno">
+        <input type="date">
+        <input type="time">
+        <select><option>Profissional: Dr. Fit</option><option>Profissional: Dra. Saúde</option></select>
+        <button>Novo Agendamento</button>
+        <button>Salvar</button>
+        <table>
+            <tr><th>Data</th><th>Horário</th><th>Profissional</th></tr>
+            <tr><td>20/08</td><td>14:00</td><td>Dr. Fit</td></tr>
+        </table>
+        <button onclick="show('tela5')" style="background:#475569;">Cancelar</button>
+    </div>
+
+    <!-- TELA 5: MEU PERFIL (MENU PRINCIPAL) -->
+    <div id="tela5" class="hidden">
+        <h2>Olá, Aluno!</h2>
+        <p style="margin-bottom:20px; font-size: 14px; color: #94a3b8;">Resumo: Ultimo treino 15/08 - Avaliação pendente.</p>
+        <button onclick="show('tela3')">Meus Treinos</button>
+        <button onclick="show('tela4')">Agendar Avaliação</button>
+        <button onclick="show('tela2')">Meu Cadastro</button>
+        <button style="background:transparent; border: 1px solid #475569; color:#94a3b8;">Histórico</button>
+        <button onclick="show('tela1')" style="background:var(--danger); color:white; margin-top:30px;">Sair</button>
+    </div>
+</div>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('.app > div').forEach(d => d.classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+    }
+</script>
+</body>
+</html>
