@@ -1,1 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nascimento Digital Studio | Sites e Portfólios Profissionais</title>
+    <style>
+        /* Design System - Premium Dark Studio */
+        :root {
+            --bg-main: #050507;
+            --bg-surface: #0c0c0e;
+            --bg-card: #131316;
+            --accent: #00f0ff; 
+            --accent-gradient: linear-gradient(135deg, #00f0ff, #7000ff);
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --border: #1e1e24;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Fluid Background - Fixed & Full Hardware Accelerated */
+        .bg-glow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background-color: var(--bg-main);
+            pointer-events: none;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
+        /* Fluid Illuminated Clouds - Optimized for Mobile rendering */
+        .glow-ball {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            -webkit-filter: blur(90px);
+            opacity: 0.18; /* Aumentado para maior visibilidade */
+            mix-blend-mode: screen;
+            animation: floatGlow 20s infinite alternate ease-in-out;
+            will-change: transform;
+        }
+        .ball-1 {
+            top: -10%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+        }
+        .ball-2 {
+            bottom: -10%;
+            right: -5%;
+            width: 350px;
+            height: 350px;
+            background: #7000ff;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        /* Fluid Illuminated Waves - Forced to stretch full screen */
+        .wave-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.45; /* Deixado bem mais visível */
+            transform: translateZ(0);
+        }
+        .wave-line {
+            will-change: transform;
+        }
+        .line-1 {
+            animation: fluidWave1 22s infinite alternate ease-in-out;
+        }
+        .line-2 {
+            animation: fluidWave2 18s infinite alternate ease-in-out;
+        }
+
+        /* Smooth CSS Animations */
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 40px) scale(1.1); }
+            100% { transform: translate(-20px, -20px) scale(0.95); }
+        }
+        @keyframes fluidWave1 {
+            0% { transform: rotate(0deg) translateY(0px) scaleY(1); }
+            50% { transform: rotate(0.5deg) translateY(15px) scaleY(1.08); }
+            100% { transform: rotate(-0.5deg) translateY(-10px) scaleY(0.95); }
+        }
+        @keyframes fluidWave2 {
+            0% { transform: rotate(0deg) translateY(0px) scaleY(1); }
+            50% { transform: rotate(-0.8deg) translateY(20px) scaleY(0.95); }
+            100% { transform: rotate(0.5deg) translateY(-15px) scaleY(1.05); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            background: rgba(5, 5, 7, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 120px 0 90px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge-promo {
+            display: inline-block;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        header h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-sub);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-main);
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--accent);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: rgba(12, 12, 14, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 8px;
+            transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateY(-4px);
+            background: rgba(19, 19, 22, 0.85);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .grid-portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            background: rgba(19, 19, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 240, 255, 0.2);
+        }
+
+        .portfolio-thumb {
+            height: 220px;
+            overflow: hidden;
+            background: #0c0c0e;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-thumb svg {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-thumb svg {
+            transform: scale(1.03);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-info p {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        .cta-block {
+            background: linear-gradient(135deg, rgba(12, 12, 14, 0.85) 0%, rgba(22, 22, 34, 0.85) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-block h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .cta-block p {
+            color: var(--text-sub);
+            max-width: 500px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background: #00ff66;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 15px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 102, 0.2);
+        }
+
+        .email-contact {
+            display: block;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .email-contact:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 60px;
+            background: rgba(5, 5, 7, 0.9);
+        }
+
+        .footer-info {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #555566;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+            .nav-links { display: none; } 
+            .cta-block { padding: 40px 20px; }
+            .cta-block h3 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND DINÂMICO REESTRUTURADO -->
+    <div class="bg-glow-container">
+        <div class="glow-ball ball-1"></div>
+        <div class="glow-ball ball-2"></div>
+        
+        <!-- preserveAspectRatio="none" garante que preencha toda a largura/altura sem cortes -->
+        <svg class="wave-svg" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="neon-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
+                    <stop offset="35%" stop-color="#00f0ff" stop-opacity="0.28" /> <!-- Opacidade turbinada -->
+                    <stop offset="70%" stop-color="#7000ff" stop-opacity="0.18" />
+                    <stop offset="100%" stop-color="#7000ff" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="neon-purple" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#7000ff" stop-opacity="0" />
+                    <stop offset="40%" stop-color="#00f0ff" stop-opacity="0.18" /> <!-- Opacidade turbinada -->
+                    <stop offset="80%" stop-color="#7000ff" stop-opacity="0.22" />
+                    <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+            <!-- Linhas de Onda Fluida -->
+            <path class="wave-line line-1" d="M0,200 C360,350 720,50 1080,300 C1260,425 1380,300 1440,250 L1440,900 L0,900 Z" fill="url(#neon-cyan)"/>
+            <path class="wave-line line-2" d="M0,400 C480,150 840,550 1200,250 C1320,150 1400,230 1440,270 L1440,900 L0,900 Z" fill="url(#neon-purple)"/>
+        </svg>
+    </div>
+
+    <nav>
+        <div class="container nav-wrapper">
+            <div class="logo">NASCIMENTO STUDIO</div>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Modelos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container">
+        <div class="badge-promo">🔥 Agenda aberta para 2 novos projetos esta semana</div>
+        <h1>Transforme visitantes em clientes com um site <span>de alta conversão</span></h1>
+        <p>Criamos Landing Pages premium, portfólios de autoridade e estruturas institucionais sob medida para destacar sua marca e multiplicar suas vendas digitalais.</p>
+        <a href="#contato" class="btn-primary">Quero Destacar Meu Negócio</a>
+    </header>
+
+    <section id="servicos" class="container">
+        <div class="section-title">
+            <h2>Soluções Focadas em Lucro</h2>
+            <p>Desenvolvemos a estrutura ideal para o momento atual do seu negócio</p>
+        </div>
+        <div class="grid-services">
+            
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Landing Pages Premium</h3>
+                <p>Páginas de vendas ultra-rápidas e milimetricamente desenhadas para transformar o tráfego dos seus anúncios (Google/Meta) em leads qualificados e vendas diretas.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👑</div>
+                <h3>Portfólios de Autoridade</h3>
+                <p>Posicione-se como um profissional de elite. Perfeito para médicos, advogados, arquitetos e especialistas que desejam gerar extrema confiança e cobrar mais caro.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>Sites Institucionais</h3>
+                <p>A vitrine digital definitiva para a sua empresa. Passe credibilidade imediata no mercado, apresente seus diferenciais e centralize seus canais de atendimento.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <div class="section-title">
+            <h2>Layouts Modernos & Fluidos</h2>
+            <p>Conheça os padrões visuais e tecnológicos que aplicamos em nossos projetos</p>
+        </div>
+        <div class="grid-portfolio">
+            
+            <!-- Modelo 1 (Corporate Wireframe) -->
+            <div class="portfolio-item">
+                <div class="portfolio-thumb">
+                    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="220" fill="#0c0c0e"/>
+                        <rect width="600" height="30" fill="#131316"/>
+                        <circle cx="20" cy="15" r="4" fill="#ff5f56"/>
+                        <circle cx="32" cy="15" r="4" fill="#ffbd2e"/>
+                        <circle cx="44" cy="15" r="4" fill="#27c93f"/>
+                        <rect x="40" y="65" width="140" height="18" rx="3" fill="#00f0ff" opacity="0.8"/>
+                        <rect x="40" y="98" width="340" height="10" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="40" y="118" width="220" height="10" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="40" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                        <rect x="215" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                        <rect x="390" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Padrão Corporate Clean</h4>
+                    <p>Focado em empresas consolidadas, clínicas e escritórios que exigem uma experiência limpa, sofisticada e de navegação intuitiva.</p>
+                </div>
+            </div>
+
+            <!-- Modelo 2 (Minimalist Neon Wireframe) -->
+            <div class="portfolio-item">
+                <div class="portfolio-thumb">
+                    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="220" fill="#050507"/>
+                        <rect width="600" height="30" fill="#0c0c0e"/>
+                        <circle cx="20" cy="15" r="4" fill="#ff5f56"/>
+                        <circle cx="32" cy="15" r="4" fill="#ffbd2e"/>
+                        <circle cx="44" cy="15" r="4" fill="#27c93f"/>
+                        <circle cx="300" cy="85" r="22" fill="#7000ff" opacity="0.5"/>
+                        <rect x="180" y="125" width="240" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
+                        <rect x="140" y="150" width="320" height="8" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="240" y="175" width="120" height="25" rx="4" fill="#00f0ff"/>
+                    </svg>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Padrão Bold & Minimalist</h4>
+                    <p>Desenvolvido para infoprodutos, startups, e-commerces inovadores e marcas modernas que buscam forte impacto visual e contraste.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" class="container">
+        <div class="cta-block">
+            <h3>Pronto para escalar o seu negócio no digital?</h3>
+            <p>Toque no botão abaixo para iniciarmos uma consultoria rápida no WhatsApp. Vou entender seu momento atual e desenhar a melhor estratégia para o seu site.</p>
+            
+            <a href="https://wa.me/5521980476367" target="_blank" class="btn-whatsapp">
+                💬 Garantir Diagnóstico Gratuito via WhatsApp
+            </a>
+            
+            <a href="mailto:niamorim14@outlook.com" class="email-contact">
+                Ou envie um e-mail: niamorim14@outlook.com
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nascimento Digital Studio. Todos os direitos reservados.</p>
+            <p class="footer-info">Contato: niamorim14@outlook.com | Desenvolvido com foco em máxima performance.</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
